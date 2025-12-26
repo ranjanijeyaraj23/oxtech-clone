@@ -3,6 +3,7 @@
 import { Shield, Lightbulb, Users } from "lucide-react";
 import AnimatedOrbit from "./AnimatedOrbit";
 import { useEffect, useState } from "react";
+
 type Particle = {
   top: string;
   left: string;
@@ -10,26 +11,28 @@ type Particle = {
   duration: string;
   delay: string;
 };
+
 export default function AboutSection() {
   const [particles, setParticles] = useState<Particle[]>([]);
 
   useEffect(() => {
-    const generated = Array.from({ length: 20 }, () => ({
-      top: `${Math.random() * 100}%`,
-      left: `${Math.random() * 100}%`,
-      size: `${2 + Math.random() * 4}px`,
-      duration: `${12 + Math.random() * 8}s`,
-      delay: `${Math.random() * 5}s`,
-    }));
-    setParticles(generated);
+    setParticles(
+      Array.from({ length: 20 }, () => ({
+        top: `${Math.random() * 100}%`,
+        left: `${Math.random() * 100}%`,
+        size: `${2 + Math.random() * 4}px`,
+        duration: `${12 + Math.random() * 8}s`,
+        delay: `${Math.random() * 5}s`,
+      }))
+    );
   }, []);
+
   return (
     <section
       id="about"
-      className="relative overflow-hidden  text-white px-6 lg:px-16 py-32 bg-[#050510]"
-      
+      className="relative w-full overflow-hidden bg-[#050510] text-white"
     >
-      {/* PARTICLES */}
+      {/* Particles */}
       <div className="absolute inset-0 pointer-events-none">
         {particles.map((p, i) => (
           <span
@@ -47,62 +50,82 @@ export default function AboutSection() {
         ))}
       </div>
 
-      {/* GLOW */}
       <div className="about-bg-glow" />
 
-     
-      <div className="relative z-10 max-w-7xl mx-auto">
+      {/* Container */}
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 py-24">
 
-        {/* BADGE */}
+        {/* Badge */}
         <div className="flex justify-center mb-6">
-          <span className="rounded-full bg-[rgba(10,255,176,0.2)] font-semibold border-2 border-[rgba(10,255,176,0.2)] px-5 py-3 text-[1rem] tracking-widest text-[#0affb0]">
+          <span className="rounded-full border border-emerald-400/30
+            bg-emerald-400/10 px-5 py-2.5
+            text-[0.9rem] sm:text-[1rem]
+            font-semibold tracking-widest text-emerald-400">
             ABOUT US
           </span>
         </div>
 
-        {/* TITLE */}
-       <h2 className="text-center text-4xl md:text-6xl font-space font-bold leading-tight">
-  Building the{" "}
-  <span
-    className="
-      bg-[linear-gradient(135deg,rgb(10,255,176)_0%,rgb(0,194,255)_100%)]
-      bg-clip-text text-transparent
-    "
-  >
-    Future
-  </span>
-  <br className="hidden sm:block" />
-  of Web3
-</h2>
+        {/* Title */}
+        <h2 className="
+          text-center font-space font-bold leading-tight
+          text-[2.2rem]
+          sm:text-[3rem]
+          md:text-[3.8rem]
+          lg:text-[4.2rem]">
+          Building the{" "}
+          <span className="
+            bg-[linear-gradient(135deg,#0affb0,#00c2ff)]
+            bg-clip-text text-transparent">
+            Future
+          </span>
+          <br className="hidden sm:block" />
+          of Web3
+        </h2>
 
-        {/* SUBTITLE */}
-        <p className="mx-auto mt-6 max-w-2xl text-center text-[1.4rem] text-[#b8b8d0]">
+        {/* Subtitle */}
+        <p className="
+          mx-auto mt-6 max-w-xl
+          text-center
+          text-[1.05rem]
+          sm:text-[1.15rem]
+          md:text-[1.25rem]
+          text-[#b8b8d0]">
           We're not just developers — we're architects of the decentralized world.
         </p>
 
-        {/* DIVIDER */}
+        {/* Divider */}
         <div className="relative mt-14 mb-20 flex justify-center">
-          <div className="h-px w-72 bg-gradient-to-r from-transparent via-emerald-500/60 to-transparent" />
-          <span className="absolute -top-1 h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_14px_#10b981]" />
+          <div className="h-px w-64 sm:w-72
+            bg-gradient-to-r from-transparent via-emerald-500/60 to-transparent" />
+          <span className="absolute -top-1 h-2 w-2 rounded-full
+            bg-emerald-400 shadow-[0_0_14px_#10b981]" />
         </div>
 
-        {/* CONTENT */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        {/* Content */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
 
-          {/* LEFT */}
+          {/* Left */}
           <div>
-            <h3 className="text-[2rem] font-bold font-space mb-5">Our Vision & Mission</h3>
+            <h3 className="text-[1.8rem] sm:text-[2rem] font-space font-bold mb-5">
+              Our Vision & Mission
+            </h3>
 
-            <p className="text-[#b8b8d0] text-[1.1rem] mb-4 leading-relaxed">
-              "At "<span className="bg-[linear-gradient(135deg,rgb(10,255,176)_0%,rgb(0,194,255)_100%)]
-      bg-clip-text text-transparent">0x Technologies</span>, "we envision a world where blockchain technology is accessible to everyone, creating a more transparent and equitable digital ecosystem. "
+            <p className="text-[#b8b8d0] text-[1rem] sm:text-[1.05rem] mb-4 leading-relaxed">
+              At{" "}
+              <span className="bg-[linear-gradient(135deg,#0affb0,#00c2ff)]
+                bg-clip-text text-transparent font-semibold">
+                0x Technologies
+              </span>
+              , we envision a world where blockchain technology is accessible to
+              everyone, creating a more transparent and equitable digital ecosystem.
             </p>
 
-            <p className="text-[#b8b8d0] text-[1.1rem] mb-12 leading-relaxed">
-              Our mission is to bridge the gap between cutting-edge blockchain innovation and practical business applications, empowering organizations to harness the full potential of decentralized technologies.
+            <p className="text-[#b8b8d0] text-[1rem] sm:text-[1.05rem] mb-12 leading-relaxed">
+              Our mission is to bridge the gap between cutting-edge blockchain
+              innovation and practical business applications.
             </p>
 
-            {/* FEATURES */}
+            {/* Features */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               <Feature
                 icon={<Lightbulb size={18} />}
@@ -122,36 +145,47 @@ export default function AboutSection() {
             </div>
           </div>
 
-          {/* RIGHT ORB */}
+          {/* Right Orbit */}
           <div className="relative flex justify-center lg:justify-end">
-           <div className="relative z-20 h-[280px] w-[280px]">
-  <AnimatedOrbit />
-</div>
-
+            <div className="
+              relative z-20
+              h-[220px] w-[220px]
+              sm:h-[260px] sm:w-[260px]
+              lg:h-[300px] lg:w-[300px]">
+              <AnimatedOrbit />
+            </div>
           </div>
         </div>
 
         {/* CTA */}
-        <div className="mt-28 flex flex-wrap justify-center gap-5">
-          <button 
-          onClick={() => {
-                document
-                  .getElementById("contact")
-                  ?.scrollIntoView({ behavior: "smooth" });
-              }}
-           className="rounded-full bg-[linear-gradient(135deg,rgb(10,255,176),rgb(0,194,255))] px-8 py-3 text-black text[1rem] font-semibold shadow-[0_0_20px_rgba(16,185,129,0.5)]  transition">
+        <div className="mt-24 flex flex-col sm:flex-row justify-center gap-4">
+          <button
+            onClick={() =>
+              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+            }
+            className="
+              rounded-full
+              bg-[linear-gradient(135deg,#0affb0,#00c2ff)]
+              px-8 py-3
+              text-black font-semibold
+              shadow-[0_0_20px_rgba(16,185,129,0.5)]
+              transition">
             Work With Us →
           </button>
-          <button 
-          onClick={() => {
-                document
-                  .getElementById("projects")
-                  ?.scrollIntoView({ behavior: "smooth" });
-              }}
-           className="rounded-full border-2 border-[#0affb0] px-8 py-3 text-[#0affb0] text-[1rem] font-medium transition">
+
+          <button
+            onClick={() =>
+              document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
+            }
+            className="
+              rounded-full border-2 border-emerald-400
+              px-8 py-3
+              text-emerald-400 font-medium
+              transition">
             Explore Our Portfolio
           </button>
         </div>
+
       </div>
     </section>
   );
@@ -167,12 +201,21 @@ function Feature({
   desc: string;
 }) {
   return (
-    <div className="rounded-xl border border-[rgba(255,255,255,.1)] bg-white/5 p-5 backdrop-blur-md hover:-translate-y-1 hover:border-emerald-500/40 transition-all">
-      <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-[rgba(25,25,40,0.6)] text-emerald-400 shadow-[0_0_10px_rgba(16,185,129,0.4)]">
+    <div className="
+      rounded-xl border border-white/10
+      bg-white/5 p-5 backdrop-blur-md
+      transition-all hover:-translate-y-1 hover:border-emerald-500/40">
+      <div className="mb-3 flex h-9 w-9 items-center justify-center
+        rounded-lg bg-[#191928]
+        text-emerald-400 shadow-[0_0_10px_rgba(16,185,129,0.4)]">
         {icon}
       </div>
-      <h4 className="font-semibold text-[1.2rem] text-center  font-space mb-1">{title}</h4>
-      <p className="text-[0.95rem] text-center text-[#b8b8d0]">{desc}</p>
+      <h4 className="font-space font-semibold text-[1.05rem] text-center mb-1">
+        {title}
+      </h4>
+      <p className="text-[0.9rem] text-center text-[#b8b8d0]">
+        {desc}
+      </p>
     </div>
   );
 }
