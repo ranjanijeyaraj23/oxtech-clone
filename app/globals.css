@@ -146,3 +146,13 @@ body {
   background-color: #00ff84;
   animation: mouseScroll 1.4s infinite ease-in-out;
 }
+@keyframes blink {
+  0%, 100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+

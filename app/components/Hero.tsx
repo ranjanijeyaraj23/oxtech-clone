@@ -1,13 +1,13 @@
 "use client";
 
-import HeroCube from "./Herocube";
+import HeroCube3D from "./Herocube";
 
 export default function Hero() {
   return (
     <section
       id="home"
       className="relative w-full overflow-hidden
-      bg-[linear-gradient(135deg,#0a0a0a,#121212_50%,#1a1a1a)]"
+      "
     >
       {/* Container */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 pt-24 pb-16">
@@ -89,7 +89,7 @@ export default function Hero() {
           {/* RIGHT : CUBE */}
           <div className="flex justify-center xl:justify-end w-full">
             <div className="scale-[0.85] sm:scale-100">
-              <HeroCube />
+              <HeroCube3D />
             </div>
           </div>
         </div>
