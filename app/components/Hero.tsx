@@ -1,6 +1,7 @@
 "use client";
 
 import HeroCube3D from "./Herocube";
+import AnimatedHeroLeft from "../components/AnimatedHeroLeft";
 
 export default function Hero() {
   return (
@@ -10,7 +11,7 @@ export default function Hero() {
         relative
         h-screen
         w-full
-        overflow-hidden
+      
         flex
         items-center
       "
@@ -21,94 +22,64 @@ export default function Hero() {
         {/* Layout */}
         <div className="flex flex-col xl:flex-row items-center gap-14 xl:gap-24">
 
-          {/* LEFT : TEXT */}
-          <div className="w-full max-w-xl text-center xl:text-left">
+         
 
-            <h1
-              className="
-                font-semibold leading-[1.1]
-                text-[2rem]
-                sm:text-[2.6rem]
-                md:text-[3.2rem]
-                xl:text-[4.2rem]
-              "
-            >
-              <span className="font-space">Building</span><br />
-              The{" "}
-              <span className="text-[#00ff84] font-space">
-                Decentralized
-              </span>
-              <br />
-              Future
-            </h1>
 
-            <p
-              className="
-                mt-6 text-neutral-400
-                text-[0.95rem]
-                sm:text-[1rem]
-                md:text-[1.05rem]
-                xl:text-[1.15rem]
-                max-w-lg mx-auto xl:mx-0
-              "
-            >
-              Pioneering blockchain solutions that transform industries and
-              redefine technological boundaries. Where innovation meets
-              enterprise-grade reliability.
-            </p>
+{/* LEFT : TEXT */}
+<AnimatedHeroLeft>
+  {/* TITLE */}
+  <h1
+    className="
+      font-semibold leading-[1.1]
+      text-[2rem]
+      sm:text-[2.6rem]
+      md:text-[3.2rem]
+      xl:text-[4.2rem]
+    "
+  >
+    <span className="block font-space">Building</span>
+    <span className="block">
+      The{" "}
+      <span className="block text-[#00ff84] font-space">
+        Decentralized
+      </span>
+    </span>
+    <span className="block">Future</span>
+  </h1>
 
-            {/* Divider */}
-            <div
-              className="
-                mx-auto xl:mx-0 mt-6
-                h-[2px] w-[60px]
-                bg-[linear-gradient(90deg,transparent,#00ff84,transparent)]
-              "
-            />
+  {/* PARAGRAPH */}
+  <p
+    className="
+      mt-6 text-neutral-400
+      text-[0.95rem]
+      sm:text-[1rem]
+      md:text-[1.05rem]
+      xl:text-[1.15rem]
+      max-w-lg mx-auto xl:mx-0
+    "
+  >
+    Pioneering blockchain solutions that transform industries and
+    redefine technological boundaries. Where innovation meets
+    enterprise-grade reliability.
+  </p>
 
-            {/* Buttons */}
-            <div className="mt-8 flex flex-wrap justify-center xl:justify-start gap-4">
-              <button
-                onClick={() =>
-                  document
-                    .getElementById("solutions")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-                className="
-                  px-10 py-3 rounded-md
-                  font-bold text-[15px]
-                  bg-[linear-gradient(135deg,#00ff84,#00cc6a)]
-                  text-black transition
-                "
-              >
-                Discover Solutions →
-              </button>
+  {/* BUTTONS */}
+  <div className="mt-8 flex flex-wrap justify-center xl:justify-start gap-4">
+    <button className="px-10 py-3 rounded-md font-bold text-[15px] bg-[linear-gradient(135deg,#00ff84,#00cc6a)] text-black">
+      Discover Solutions →
+    </button>
+    <button className="px-10 py-3 rounded-md font-bold text-[15px] border border-[rgba(0,194,255,0.8)] text-[rgb(0,194,255)]">
+      View Case Studies
+    </button>
+  </div>
 
-              <button
-                onClick={() =>
-                  document
-                    .getElementById("projects")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-                className="
-                  px-10 py-3 rounded-md
-                  font-bold text-[15px]
-                  border border-[rgba(0,194,255,0.8)]
-                  text-[rgb(0,194,255)]
-                  transition
-                "
-              >
-                View Case Studies
-              </button>
-            </div>
-
-            {/* Stats */}
-            <div className="mt-10 flex justify-center xl:justify-start gap-10">
-              <Stat value="35+" label="Enterprise Clients" />
-              <Stat value="250+" label="Projects Delivered" />
-              <Stat value="99.9%" label="Uptime Guarantee" />
-            </div>
-          </div>
+  {/* STATS */}
+  <div className="mt-10 flex justify-center xl:justify-start gap-10">
+    <Stat value="35+" label="Enterprise Clients" />
+    <Stat value="250+" label="Projects Delivered" />
+    <Stat value="99.9%" label="Uptime Guarantee" />
+  </div>
+</AnimatedHeroLeft>
 
           {/* RIGHT : CUBE */}
           <div className="flex justify-center xl:justify-end w-full">
