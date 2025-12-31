@@ -27,6 +27,10 @@ module.exports = {
           "2xl": "1280px",
         },
       },
+            letterSpacing: {
+        '05px': '0.5px',
+      },
+
     },
   },
   plugins: [],

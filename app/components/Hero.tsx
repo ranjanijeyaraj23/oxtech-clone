@@ -6,11 +6,17 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative w-full overflow-hidden
+      className="
+        relative
+        h-screen
+        w-full
+        overflow-hidden
+        flex
+        items-center
       "
     >
-      {/* Container */}
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 pt-24 pb-16">
+      {/* Inner Container */}
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-10">
 
         {/* Layout */}
         <div className="flex flex-col xl:flex-row items-center gap-14 xl:gap-24">
@@ -20,11 +26,12 @@ export default function Hero() {
 
             <h1
               className="
-              font-semibold leading-[1.1]
-              text-[2rem]
-              sm:text-[2.6rem]
-              md:text-[3.2rem]
-              xl:text-[4.2rem]"
+                font-semibold leading-[1.1]
+                text-[2rem]
+                sm:text-[2.6rem]
+                md:text-[3.2rem]
+                xl:text-[4.2rem]
+              "
             >
               <span className="font-space">Building</span><br />
               The{" "}
@@ -37,12 +44,13 @@ export default function Hero() {
 
             <p
               className="
-              mt-6 text-neutral-400
-              text-[0.95rem]
-              sm:text-[1rem]
-              md:text-[1.05rem]
-              xl:text-[1.15rem]
-              max-w-lg mx-auto xl:mx-0"
+                mt-6 text-neutral-400
+                text-[0.95rem]
+                sm:text-[1rem]
+                md:text-[1.05rem]
+                xl:text-[1.15rem]
+                max-w-lg mx-auto xl:mx-0
+              "
             >
               Pioneering blockchain solutions that transform industries and
               redefine technological boundaries. Where innovation meets
@@ -50,29 +58,45 @@ export default function Hero() {
             </p>
 
             {/* Divider */}
-            <div className="mx-auto xl:mx-0 mt-6 h-[2px] w-[60px]
-              bg-[linear-gradient(90deg,transparent,#00ff84,transparent)]" />
+            <div
+              className="
+                mx-auto xl:mx-0 mt-6
+                h-[2px] w-[60px]
+                bg-[linear-gradient(90deg,transparent,#00ff84,transparent)]
+              "
+            />
 
             {/* Buttons */}
             <div className="mt-8 flex flex-wrap justify-center xl:justify-start gap-4">
               <button
                 onClick={() =>
-                  document.getElementById("solutions")?.scrollIntoView({ behavior: "smooth" })
+                  document
+                    .getElementById("solutions")
+                    ?.scrollIntoView({ behavior: "smooth" })
                 }
-                className="px-10 py-3 rounded-md font-bold text-[15px]
-                bg-[linear-gradient(135deg,#00ff84,#00cc6a)]
-                text-black transition"
+                className="
+                  px-10 py-3 rounded-md
+                  font-bold text-[15px]
+                  bg-[linear-gradient(135deg,#00ff84,#00cc6a)]
+                  text-black transition
+                "
               >
                 Discover Solutions →
               </button>
 
               <button
                 onClick={() =>
-                  document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
+                  document
+                    .getElementById("projects")
+                    ?.scrollIntoView({ behavior: "smooth" })
                 }
-                className="px-10 py-3 rounded-md font-bold text-[15px]
-                border border-[rgba(0,194,255,0.8)]
-                text-[rgb(0,194,255)] transition"
+                className="
+                  px-10 py-3 rounded-md
+                  font-bold text-[15px]
+                  border border-[rgba(0,194,255,0.8)]
+                  text-[rgb(0,194,255)]
+                  transition
+                "
               >
                 View Case Studies
               </button>
@@ -95,7 +119,7 @@ export default function Hero() {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="mt-16 flex flex-col items-center gap-3 text-[0.85rem] text-[#d0d0d0]">
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-[0.85rem] text-[#d0d0d0]">
           <div className="flex h-7 w-5 items-start justify-center rounded-full border border-[#d0d0d0] pt-1">
             <span className="mouse-dot" />
           </div>

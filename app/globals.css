@@ -147,12 +147,40 @@ body {
   animation: mouseScroll 1.4s infinite ease-in-out;
 }
 @keyframes blink {
-  0%, 100% {
-    opacity: 0.35;
-  }
-  50% {
-    opacity: 1;
-  }
+  0%,100% { opacity: 0.2; }
+  50% { opacity: 0.8; }
+}
+@keyframes float {
+          0% { transform: translateY(0); opacity: 0.3; }
+          50% { transform: translateY(-10px); opacity: 0.6; }
+          100% { transform: translateY(0); opacity: 0.3; }
+        }
+
+/* Cursor blink */
+@keyframes cursorBlink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
 }
 
+.animate-cursor {
+  animation: cursorBlink 1.1s steps(1) infinite;
+}
 
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+.nav-grid::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(90deg, rgba(30,30,30,.05) 1px, transparent 0),
+    linear-gradient(180deg, rgba(30,30,30,.05) 1px, transparent 0);
+  background-size: 20px 20px;
+  opacity: .2;
+  pointer-events: none;
+}
