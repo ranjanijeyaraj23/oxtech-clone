@@ -194,3 +194,9 @@ body {
     transform: scale(1) rotate(8deg);
   }
 }
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+

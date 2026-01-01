@@ -1,15 +1,13 @@
-"use client";
-
-import { useState } from "react";
-import LoadingScreen from "./components/LoadingScreen";
+import LoaderShell from "./components/LoaderShell";
+import ClientLoader from "./components/ClientLoader";
 import HomeContent from "./components/HomeContent";
 
 export default function Page() {
-  const [loading, setLoading] = useState(true);
-
-  return loading ? (
-    <LoadingScreen onFinish={() => setLoading(false)} />
-  ) : (
-    <HomeContent />
+  return (
+    <>
+      <LoaderShell />   {/* SSR HTML */}
+      <ClientLoader />  {/* Client animation */}
+      <HomeContent />   {/* SSR site */}
+    </>
   );
 }

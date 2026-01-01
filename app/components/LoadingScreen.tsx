@@ -13,10 +13,10 @@ export default function LoadingScreen({
   const [progress, setProgress] = useState(0);
 const [showDots, setShowDots] = useState(false);
 
-  const [showLogo, setShowLogo] = useState(false);
-  const [showOx, setShowOx] = useState(false);
-  const [showTech, setShowTech] = useState(false);
-  const [showBar, setShowBar] = useState(false);
+  const [showLogo, setShowLogo] = useState(true);
+  const [showOx, setShowOx] = useState(true);
+  const [showTech, setShowTech] = useState(true);
+  const [showBar, setShowBar] = useState(true);
   const [showCode, setShowCode] = useState(false);
   const [visible, setVisible] = useState(true);
 
@@ -39,43 +39,76 @@ const [showDots, setShowDots] = useState(false);
     return;
   }
 
-  setTimeout(() => setShowLogo(true), 300);
-  setTimeout(() => setShowOx(true), 900);
-  setTimeout(() => setShowTech(true), 1300);
-  setTimeout(() => setShowBar(true), 1750);
+  // setTimeout(() => setShowLogo(true), 300);
+  // setTimeout(() => setShowOx(true), 900);
+  // setTimeout(() => setShowTech(true), 1300);
+  // setTimeout(() => setShowBar(true), 1750);
+// ✅ INITIAL STATIC LOAD
+  setShowLogo(true);
+  setShowOx(true);
+  setShowTech(true);
+  setShowBar(true);
 
-  // 🔥 DOTS APPEAR AFTER BAR STARTS
-  setTimeout(() => setShowDots(true), 1900);
+  // ⏳ WAIT before progress starts
+  const startProgressTimer = setTimeout(() => {
+    setProgress(0); // triggers progress effect
+  }, 200); // reference-like delay
 
-  setTimeout(() => setShowCode(true), 2500);
+  return () => {
+    clearTimeout(startProgressTimer);
+  };
 }, []);
 
   /* ---------------- PROGRESS ---------------- */
 
-  useEffect(() => {
-    if (!showBar) return;
+ /* ---------------- PROGRESS ---------------- */
 
-    const duration = 2600;
-    const start = performance.now();
+useEffect(() => {
+  if (!showBar) return;
 
-    const tick = (now: number) => {
-      const elapsed = now - start;
-      const pct = Math.min((elapsed / duration) * 100, 100);
-      setProgress(Math.round(pct));
+  let started = false;
+  const duration = 3000;
 
-      if (pct < 100) {
-        requestAnimationFrame(tick);
-      } else {
-        // hold, then exit
-        setTimeout(() => setVisible(false), 300);
-      }
-    };
+  const start = performance.now();
 
+  const tick = (now: number) => {
+    if (!started) started = true;
+
+    const elapsed = now - start;
+    const pct = Math.min((elapsed / duration) * 100, 100);
+    setProgress(pct);
+
+    if (pct < 100) {
+      requestAnimationFrame(tick);
+    } else {
+      setTimeout(() => setVisible(false), 500);
+    }
+  };
+
+  // ⛔ prevent auto-start on mount
+  if (progress === 0) {
     requestAnimationFrame(tick);
-  }, [showBar]);
+  }
+}, [showBar, progress]);
+/* ---------------- PROGRESS-DRIVEN REVEALS ---------------- */
+
+useEffect(() => {
+  // ✅ Dots appear AFTER progress starts
+  if (progress > 0 && !showDots) {
+    setShowDots(true);
+  }
+
+  // ✅ Code appears DURING progress
+  if (progress > 0 && !showCode) {
+    setShowCode(true);
+  }
+}, [progress]);
+
 
   return (
-    <AnimatePresence onExitComplete={onFinish}>
+    // <AnimatePresence onExitComplete={onFinish}>
+    <AnimatePresence initial={false} onExitComplete={onFinish}>
+
       {visible && (
         <motion.div
           initial={{ opacity: 1 }}
@@ -110,7 +143,7 @@ const [showDots, setShowDots] = useState(false);
           <div className="relative z-10 flex flex-col items-center">
            {showLogo && (
   <motion.div
-    initial={{ scale: 0.96, opacity: 0 }}
+    initial={false}
     animate={{
       scale: 1,
       opacity: 1,
@@ -137,7 +170,7 @@ const [showDots, setShowDots] = useState(false);
 
 {showOx && (
   <motion.h1
-    initial={{ opacity: 0 }}
+    initial={ false}
     animate={{ opacity: 1 }}
     transition={{ duration: 0.25, ease: cubic }}
     className="relative font-bold leading-none"
@@ -177,7 +210,7 @@ const [showDots, setShowDots] = useState(false);
 
             {showTech && (
               <motion.p
-                initial={{ opacity: 0 }}
+                initial={false}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.4, ease: cubic }}
                 className="mt-2 text-[1.8rem] tracking-wider font-bold text-white will-change-opacity"
@@ -195,14 +228,14 @@ const [showDots, setShowDots] = useState(false);
                   />
                 </div>
                 <p className="text-xs text-gray-400 text-right mt-1">
-                  {progress}%
+                   {Math.round(progress)}%
                 </p>
               </div>
             )}
 
             {showCode && (
               <motion.div
-  initial={{ opacity: 0, y: 6 }}
+  initial={false}
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.35, ease: cubic }}
   className="

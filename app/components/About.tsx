@@ -1,60 +1,19 @@
-"use client";
-
+import AboutClient from "../components/AboutClient";
 import { Shield, Lightbulb, Users } from "lucide-react";
-import AnimatedOrbit from "./AnimatedOrbit";
-import { useEffect, useState } from "react";
-
-type Particle = {
-  top: string;
-  left: string;
-  size: string;
-  duration: string;
-  delay: string;
-};
 
 export default function AboutSection() {
-  const [particles, setParticles] = useState<Particle[]>([]);
-
-  useEffect(() => {
-    setParticles(
-      Array.from({ length: 20 }, () => ({
-        top: `${Math.random() * 100}%`,
-        left: `${Math.random() * 100}%`,
-        size: `${2 + Math.random() * 4}px`,
-        duration: `${12 + Math.random() * 8}s`,
-        delay: `${Math.random() * 5}s`,
-      }))
-    );
-  }, []);
-
   return (
     <section
       id="about"
       className="relative w-full overflow-hidden bg-[#050510] text-white"
     >
-      {/* Particles */}
-      <div className="absolute inset-0 pointer-events-none">
-        {particles.map((p, i) => (
-          <span
-            key={i}
-            className="about-particle"
-            style={{
-              top: p.top,
-              left: p.left,
-              width: p.size,
-              height: p.size,
-              animationDuration: p.duration,
-              animationDelay: p.delay,
-            }}
-          />
-        ))}
-      </div>
+      {/* CLIENT EFFECTS */}
+      <AboutClient />
 
       <div className="about-bg-glow" />
 
       {/* Container */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 py-24">
-
         {/* Badge */}
         <div className="flex justify-center mb-6">
           <span className="rounded-full border border-emerald-400/30
@@ -66,15 +25,10 @@ export default function AboutSection() {
         </div>
 
         {/* Title */}
-        <h2 className="
-          text-center font-space font-bold leading-tight
-          text-[2.2rem]
-          sm:text-[3rem]
-          md:text-[3.8rem]
-          lg:text-[4.2rem]">
+        <h2 className="text-center font-space font-bold leading-tight
+          text-[2.2rem] sm:text-[3rem] md:text-[3.8rem] lg:text-[4.2rem]">
           Building the{" "}
-          <span className="
-            bg-[linear-gradient(135deg,#0affb0,#00c2ff)]
+          <span className="bg-[linear-gradient(135deg,#0affb0,#00c2ff)]
             bg-clip-text text-transparent">
             Future
           </span>
@@ -83,12 +37,8 @@ export default function AboutSection() {
         </h2>
 
         {/* Subtitle */}
-        <p className="
-          mx-auto mt-6 max-w-xl
-          text-center
-          text-[1.05rem]
-          sm:text-[1.15rem]
-          md:text-[1.25rem]
+        <p className="mx-auto mt-6 max-w-xl text-center
+          text-[1.05rem] sm:text-[1.15rem] md:text-[1.25rem]
           text-[#b8b8d0]">
           We're not just developers — we're architects of the decentralized world.
         </p>
@@ -103,89 +53,40 @@ export default function AboutSection() {
 
         {/* Content */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
-
           {/* Left */}
           <div>
             <h3 className="text-[1.8rem] sm:text-[2rem] font-space font-bold mb-5">
               Our Vision & Mission
             </h3>
 
-            <p className="text-[#b8b8d0] text-[1rem] sm:text-[1.05rem] mb-4 leading-relaxed">
+            <p className="text-[#b8b8d0] mb-4 leading-relaxed">
               At{" "}
               <span className="bg-[linear-gradient(135deg,#0affb0,#00c2ff)]
                 bg-clip-text text-transparent font-semibold">
                 0x Technologies
               </span>
-              , we envision a world where blockchain technology is accessible to
-              everyone, creating a more transparent and equitable digital ecosystem.
+              , we envision a world where blockchain technology is accessible to everyone.
             </p>
 
-            <p className="text-[#b8b8d0] text-[1rem] sm:text-[1.05rem] mb-12 leading-relaxed">
-              Our mission is to bridge the gap between cutting-edge blockchain
-              innovation and practical business applications.
+            <p className="text-[#b8b8d0] mb-12 leading-relaxed">
+              Our mission is to bridge innovation and real-world adoption.
             </p>
 
-            {/* Features */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              <Feature
-                icon={<Lightbulb size={18} />}
-                title="Innovation"
-                desc="Pushing boundaries and exploring new possibilities."
-              />
-              <Feature
-                icon={<Shield size={18} />}
-                title="Security"
-                desc="Building with safety and protection as priorities."
-              />
-              <Feature
-                icon={<Users size={18} />}
-                title="Community"
-                desc="Contributing to open-source and knowledge sharing."
-              />
+              <Feature icon={<Lightbulb size={18} />} title="Innovation" desc="Pushing boundaries." />
+              <Feature icon={<Shield size={18} />} title="Security" desc="Safety first." />
+              <Feature icon={<Users size={18} />} title="Community" desc="Open collaboration." />
             </div>
           </div>
 
-          {/* Right Orbit */}
+          {/* Right */}
           <div className="relative flex justify-center lg:justify-end">
-            <div className="
-              relative z-20
-              h-[220px] w-[220px]
-              sm:h-[260px] sm:w-[260px]
-              lg:h-[300px] lg:w-[300px]">
-              <AnimatedOrbit />
+            <div className="relative z-20 h-[220px] w-[220px] sm:h-[260px] sm:w-[260px] lg:h-[300px] lg:w-[300px]">
+              {/* ORBIT IS CLIENT */}
+              <AboutClient.Orbit />
             </div>
           </div>
         </div>
-
-        {/* CTA */}
-        <div className="mt-24 flex flex-col sm:flex-row justify-center gap-4">
-          <button
-            onClick={() =>
-              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
-            }
-            className="
-              rounded-full
-              bg-[linear-gradient(135deg,#0affb0,#00c2ff)]
-              px-8 py-3
-              text-black font-semibold
-              shadow-[0_0_20px_rgba(16,185,129,0.5)]
-              transition">
-            Work With Us →
-          </button>
-
-          <button
-            onClick={() =>
-              document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
-            }
-            className="
-              rounded-full border-2 border-emerald-400
-              px-8 py-3
-              text-emerald-400 font-medium
-              transition">
-            Explore Our Portfolio
-          </button>
-        </div>
-
       </div>
     </section>
   );
@@ -201,21 +102,12 @@ function Feature({
   desc: string;
 }) {
   return (
-    <div className="
-      rounded-xl border border-white/10
-      bg-white/5 p-5 backdrop-blur-md
-      transition-all hover:-translate-y-1 hover:border-emerald-500/40">
-      <div className="mb-3 flex h-9 w-9 items-center justify-center
-        rounded-lg bg-[#191928]
-        text-emerald-400 shadow-[0_0_10px_rgba(16,185,129,0.4)]">
+    <div className="rounded-xl border border-white/10 bg-white/5 p-5 backdrop-blur-md">
+      <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-[#191928] text-emerald-400">
         {icon}
       </div>
-      <h4 className="font-space font-semibold text-[1.05rem] text-center mb-1">
-        {title}
-      </h4>
-      <p className="text-[0.9rem] text-center text-[#b8b8d0]">
-        {desc}
-      </p>
+      <h4 className="font-semibold text-center">{title}</h4>
+      <p className="text-sm text-center text-[#b8b8d0]">{desc}</p>
     </div>
   );
 }
