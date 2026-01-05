@@ -143,7 +143,7 @@ body {
   width: 6px;
   height: 6px;
   border-radius: 9999px;
-  background-color: #00ff84;
+  background-color: #3bb273;
   animation: mouseScroll 1.4s infinite ease-in-out;
 }
 @keyframes blink {

@@ -19,13 +19,7 @@ export default function ServicesClient({
   const [activeId, setActiveId] = useState("smart-contract");
 
   return (
-    <div
-      className="
-        grid gap-6
-        grid-cols-1
-        sm:grid-cols-2
-        xl:grid-cols-4"
-    >
+    <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 xl:grid-cols-4">
       {services.map((service) => {
         const Icon = service.icon;
         const isActive = activeId === service.id;
@@ -34,7 +28,12 @@ export default function ServicesClient({
           <div
             key={service.id}
             onClick={() => setActiveId(service.id)}
-            style={{ "--accent": service.color } as React.CSSProperties}
+            style={
+              {
+                "--accent": service.color,
+                "--accent-glow": "rgba(31,122,255,0.35)",
+              } as React.CSSProperties
+            }
             className={`
               group relative cursor-pointer rounded-2xl border
               p-6 min-h-[260px]
@@ -44,14 +43,14 @@ export default function ServicesClient({
                 isActive
                   ? `
                     border-[var(--accent)]
-                    bg-[color-mix(in_srgb,var(--accent)_10%,transparent)]
-                    shadow-[0_0_35px_var(--accent)]
+                    bg-[linear-gradient(180deg,rgba(31,122,255,0.10),rgba(59,178,115,0.08))]
+                    shadow-[0_0_30px_rgba(31,122,255,0.35)]
                   `
                   : `
                     border-white/10
                     bg-white/5
                     hover:border-[var(--accent)]
-                    hover:shadow-[0_0_25px_var(--accent)]
+                    hover:shadow-[0_0_22px_rgba(59,178,115,0.35)]
                   `
               }
             `}
@@ -72,8 +71,8 @@ export default function ServicesClient({
                 transition-all duration-300
                 ${
                   isActive
-                    ? "bg-[var(--accent)] text-black"
-                    : "bg-white/10 text-white group-hover:text-[var(--accent)]"
+                    ? "bg-[linear-gradient(135deg,#1f7aff,#3bb273)] text-white"
+                    : "bg-white/10 text-white group-hover:text-[#1f7aff]"
                 }
               `}
             >
@@ -86,8 +85,8 @@ export default function ServicesClient({
                 text-lg font-bold transition-colors
                 ${
                   isActive
-                    ? "text-[var(--accent)]"
-                    : "text-white group-hover:text-[var(--accent)]"
+                    ? "text-[#1f7aff]"
+                    : "text-white group-hover:text-[#3bb273]"
                 }
               `}
             >
@@ -95,7 +94,7 @@ export default function ServicesClient({
             </h3>
 
             {/* Description */}
-            <p className="mt-2 text-[14.5px] text-[#b0b0b0]">
+            <p className="mt-2 text-[14.5px] text-[#b6c4da]">
               {service.description}
             </p>
 
@@ -106,12 +105,12 @@ export default function ServicesClient({
                 ${isActive ? "max-h-40 mt-4" : "max-h-0"}
               `}
             >
-              <ul className="space-y-2 text-[0.9rem] text-[#d0d0d0]">
+              <ul className="space-y-2 text-[0.9rem] text-[#d6e0f0]">
                 {service.features?.map((f) => (
                   <li key={f} className="flex items-center gap-2">
                     <span
                       className="h-1.5 w-1.5 rounded-full"
-                      style={{ backgroundColor: service.color }}
+                      style={{ backgroundColor: "#3bb273" }}
                     />
                     {f}
                   </li>

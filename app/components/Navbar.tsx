@@ -12,7 +12,7 @@ import {
   Menu,
   MessageSquare,
 } from "lucide-react";
-
+import Image from "next/image";
 const navItems = [
   { name: "Home", href: "#home", icon: Home },
   { name: "Solutions", href: "#solutions", icon: Layers },
@@ -43,20 +43,41 @@ export default function Navbar() {
   return (
     <>
       {/* ================= HEADER ================= */}
-      <header className="fixed top-0 left-0 z-[100] w-full h-[80px] bg-[rgba(10,10,10,.95)] shadow-[0_5px_20px_rgba(0,0,0,.2)]">
+     <header
+  className="
+    fixed top-0 left-0 z-[100]
+    w-full h-[80px]
+    bg-[#070b12]
+    backdrop-blur-xl
+    border-b border-white/5
+    shadow-[0_6px_30px_rgba(0,0,0,0.55)]
+  "
+>
+
 
         {/* HEADER GRID */}
-        <div
-          className="absolute inset-0 pointer-events-none z-0"
-          style={{
-            backgroundImage: `
-              linear-gradient(90deg, rgba(30,30,30,0.05) 1px, transparent 0),
-              linear-gradient(180deg, rgba(30,30,30,0.05) 1px, transparent 0)
-            `,
-            backgroundSize: "40px 40px",
-            opacity: 0.35,
-          }}
-        />
+        {/* HEADER GRADIENT GLOW */}
+<div
+  className="absolute inset-0 pointer-events-none z-0"
+  style={{
+    background:
+      "linear-gradient(135deg, rgba(31,122,255,0.08), rgba(59,178,115,0.08))",
+  }}
+/>
+
+{/* HEADER GRID */}
+<div
+  className="absolute inset-0 pointer-events-none z-0"
+  style={{
+    backgroundImage: `
+      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 0),
+      linear-gradient(180deg, rgba(255,255,255,0.04) 1px, transparent 0)
+    `,
+    backgroundSize: "40px 40px",
+    opacity: 0.15,
+  }}
+/>
+
 
         <nav className="relative z-10 mx-auto w-full max-w-[1440px] h-full px-4 lg:px-5 xl:px-10 flex items-center">
           <div className="flex items-center w-full gap-6">
@@ -66,18 +87,8 @@ export default function Navbar() {
 
               {/* LOGO */}
               <Link href="#home" className="flex items-center gap-2">
-                <OxLogo1 />
-                <div>
-                  <div className="font-extrabold">
-                    <span className="text-[#00ffb8] text-[1.8rem]">O</span>
-                    <span className="text-[#00c2ff] text-[1.6rem] ml-[-4px]">x</span>
-                  </div>
-
-                  {/* Technologies ONLY desktop */}
-                  <div className="hidden lg:block text-[#b0b0b0] text-[0.95rem] tracking-[0.5px]">
-                    Technologies
-                  </div>
-                </div>
+                <EeshisoftLogo />
+                
               </Link>
 
               {/* HAMBURGER — mobile + tablet */}
@@ -108,7 +119,9 @@ export default function Navbar() {
                       after:w-[4px]
                       after:h-[4px]
                       after:rounded-full
-                      after:bg-[rgba(0,255,132,0.3)]
+                      after:bg-[#3bb273]
+after:shadow-[0_0_6px_rgba(59,178,115,0.6)]
+
                       after:z-[2]
                       last:after:hidden
                     "
@@ -136,8 +149,8 @@ export default function Navbar() {
                         border transition-all text-[0.95rem]
                         ${
                           isActive
-                            ? "border-[rgba(0,255,132,.6)] bg-[linear-gradient(135deg,rgba(0,255,132,.15),rgba(0,194,255,.15))] text-white"
-                            : "border-[rgba(80,80,80,.5)] text-[#b0b0b0] hover:bg-white/5 hover:text-white"
+                            ? "border-[#1f7aff] bg-[linear-gradient(135deg,rgba(31,122,255,.18),rgba(59,178,115,.18))] shadow-[0_0_18px_rgba(31,122,255,0.35)] text-white"
+                            : "border-[rgba(80,80,80,.5)] hover:shadow-[0_0_12px_rgba(31,122,255,0.25)] text-[#b0b0b0] hover:bg-[rgba(31,122,255,0.08)] hover:text-[#e6f0ff]"
                         }
                       `}
                     >
@@ -157,12 +170,20 @@ export default function Navbar() {
     flex items-center gap-2
     rounded-full
     px-5 py-2
-    border border-[rgba(0,255,132,.4)]
-    bg-[linear-gradient(135deg,rgba(0,255,132,.15),rgba(0,194,255,.15))]
+    border-[#3bb273]
+bg-[linear-gradient(135deg,#1f7aff,#3bb273)]
     text-white
-    hover:shadow-[0_0_25px_rgba(0,255,132,.45)]
-    active:text-[#00ff84]
-    focus:text-[#00ff84]
+   transition-all duration-200
+
+    hover:shadow-[0_0_28px_rgba(59,178,115,0.55)]
+    hover:-translate-y-[1px]
+
+    active:translate-y-0
+    active:shadow-[0_0_16px_rgba(31,122,255,0.45)]
+
+    focus:outline-none
+    focus:ring-2
+    focus:ring-[#3bb273]/50
   "
 >
   <MessageSquare size={16} />
@@ -184,8 +205,8 @@ export default function Navbar() {
       bottom-0                /* full remaining height */
       z-[1000]
       w-[280px]
-      bg-[#070707]            /* darker background */
-      border-l border-emerald-500/25
+      bg-[#070b12]            /* darker background */
+      border-l border-[#3bb273]
       lg:hidden
     "
   >
@@ -199,7 +220,7 @@ export default function Navbar() {
           return (
             <div key={item.name} className="relative">
               {/* base background */}
-              <div className="absolute inset-0 bg-[rgba(30,30,30,.55)] rounded-lg" />
+              <div className="absolute inset-0 bg-[rgba(18,28,38,.65)] rounded-lg" />
 
               {/* grid overlay */}
               <div
@@ -210,7 +231,7 @@ export default function Navbar() {
                     linear-gradient(180deg, rgba(30,30,30,0.05) 1px, transparent 0)
                   `,
                   backgroundSize: "20px 20px",
-                  opacity: 0.25,
+                  opacity: 0.18,
                 }}
               />
 
@@ -223,8 +244,8 @@ export default function Navbar() {
                   rounded-lg border transition-all text-[0.95rem]
                   ${
                     isActive
-                      ? "border-[rgba(0,255,132,.6)] bg-[linear-gradient(135deg,rgba(0,255,132,.18),rgba(0,194,255,.18))] text-white"
-                      : "border-[rgba(90,90,90,.6)] text-[#b0b0b0] hover:bg-white/5 hover:text-white"
+                      ? "border-[#1f7aff] bg-[linear-gradient(135deg,rgba(31,122,255,.22),rgba(59,178,115,.22))] shadow-[0_0_16px_rgba(31,122,255,0.35)] text-white"
+                      : "border-[rgba(90,120,160,.35)] text-[#b8c7e0] hover:bg-[rgba(31,122,255,0.12)] hover:text-[#eef4ff] hover:shadow-[0_0_14px_rgba(31,122,255,0.3)]"
                   }
                 `}
               >
@@ -246,18 +267,41 @@ export default function Navbar() {
   );
 }
 
-function OxLogo1() {
+// function OxLogo1() {
+//   return (
+//     <svg width="48" height="48" viewBox="0 0 112 112" className="block">
+//       <defs>
+//         <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+//           <feGaussianBlur stdDeviation="2" />
+//         </filter>
+//       </defs>
+//       <rect x="16" y="16" width="80" height="80" rx="8" fill="#00ffb3" filter="url(#glow)" />
+//       <text x="56" y="64" textAnchor="middle" fontSize="36" fontWeight="700" fill="#000">
+//         X
+//       </text>
+//     </svg>
+//   );
+// }
+function EeshisoftLogo() {
   return (
-    <svg width="48" height="48" viewBox="0 0 112 112" className="block">
-      <defs>
-        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur stdDeviation="2" />
-        </filter>
-      </defs>
-      <rect x="16" y="16" width="80" height="80" rx="8" fill="#00ffb3" filter="url(#glow)" />
-      <text x="56" y="64" textAnchor="middle" fontSize="36" fontWeight="700" fill="#000">
-        X
-      </text>
-    </svg>
+    <div
+      className="
+        w-[80px]
+        h-[80px]
+        flex
+        items-center
+        justify-center
+        drop-shadow-[0_0_30px_rgba(31,122,255,0.45)]
+      "
+    >
+      <Image
+        src="/eeshisoft-logo.png" // or .png
+        alt="Eeshisoft Logo"
+        width={80}
+        height={80}
+        priority
+        unoptimized
+      />
+    </div>
   );
 }
