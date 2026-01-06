@@ -4,7 +4,7 @@ import { Shield, Lightbulb, Users } from "lucide-react";
 export default function AboutSection() {
   return (
     <section
-      id="about"
+      id="about" aria-labelledby="about-heading"
       className="relative w-full overflow-hidden bg-[#05080f] text-white"
     >
       {/* CLIENT EFFECTS */}
@@ -32,7 +32,7 @@ export default function AboutSection() {
         </div>
 
         {/* Title */}
-        <h2
+        <h2 id="about-heading"
           className="
             text-center font-space font-bold leading-tight
             text-[2.2rem] sm:text-[3rem] md:text-[3.8rem] lg:text-[4.2rem]
@@ -59,7 +59,8 @@ export default function AboutSection() {
             text-[#b6c4da]
           "
         >
-          We're not just developers — we're architects of the decentralized world.
+         Eeshisoft Technologies is a software and blockchain development company building secure, scalable Web3 applications for real-world use.
+
         </p>
 
         {/* Divider */}

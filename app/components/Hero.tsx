@@ -12,7 +12,9 @@ export default function Hero() {
     bg-[radial-gradient(circle_at_top,rgba(31,122,255,0.10),transparent_55%),radial-gradient(circle_at_bottom,rgba(59,178,115,0.10),transparent_55%)]
   "
 >
-
+<h1 className="sr-only">
+        Software & Web Development Company
+      </h1>
       <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-10 flex flex-col justify-center">
         <div className="flex flex-col xl:flex-row items-center gap-14 xl:gap-24">
 

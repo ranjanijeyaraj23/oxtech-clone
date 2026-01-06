@@ -57,14 +57,14 @@ export default function ContactSection() {
             "
           >
             <p className="text-[0.95rem] leading-[1.7] text-[#dbe6ff]">
-              Have a project in mind? Our team is ready to help turn your
-              vision into reality.
+             Have a project in mind? Contact our software and blockchain development team to discuss your ideas and requirements.
+
             </p>
 
             <InfoCard
               icon={<Mail size={18} />}
               title="Email"
-              value="contact@0xtechnologies.com"
+              value="contact@eeshisoft.in"
               sub="General inquiries & partnerships"
             />
 

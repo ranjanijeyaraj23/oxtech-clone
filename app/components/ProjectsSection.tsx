@@ -2,7 +2,7 @@ import ProjectsClient from "../components/ProjectsClient";
 
 export default function ProjectsSection() {
   return (
-    <section
+    <section aria-labelledby="projects-heading"
       id="projects"
       className="relative w-full bg-[#0b1020] overflow-hidden"
     >
@@ -23,7 +23,7 @@ export default function ProjectsSection() {
             PORTFOLIO
           </p>
 
-          <h2
+          <h2 id="projects-heading"
             className="
               mt-3
               text-[2.1rem] sm:text-[2.5rem] md:text-[2.8rem]
@@ -33,6 +33,9 @@ export default function ProjectsSection() {
           >
             Our Projects
           </h2>
+<p className="mt-3 text-[#b6c4da] text-[0.95rem] max-w-xl mx-auto">
+  Explore our recent web, blockchain, and software development projects built using modern technologies.
+</p>
 
           {/* Static divider (SSR) */}
           <div

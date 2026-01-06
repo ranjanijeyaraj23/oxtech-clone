@@ -4,14 +4,14 @@ import { services } from "./servicesData";
 export default function ServicesSection() {
   return (
     <section
-      id="solutions"
+      id="solutions" aria-labelledby="services-heading"
       className="relative w-full bg-[#0f0f0f] overflow-hidden"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 py-24">
 
         {/* Title */}
         <div className="text-center mb-16">
-          <h2 className="text-[2.1rem] sm:text-[2.4rem] font-space font-extrabold text-[#f8f8f8]">
+          <h2 id="services-heading" className="text-[2.1rem] sm:text-[2.4rem] font-space font-extrabold text-[#f8f8f8]">
             Our Services
           </h2>
 
@@ -24,7 +24,8 @@ export default function ServicesSection() {
           />
 
           <p className="mt-4 text-[#a8b6cc] text-[0.95rem] sm:text-[1rem]">
-            Blockchain solutions tailored to your needs
+           Custom blockchain and web development services designed to build secure, scalable, and modern digital products.
+
           </p>
         </div>
 
@@ -49,7 +50,7 @@ export default function ServicesSection() {
               Let our experts help bring your vision to life.
             </p>
 
-            <button
+            <a href="#contact"
               className="
                 mt-6 rounded-full
                 bg-[linear-gradient(135deg,#1f7aff,#3bb273)]
@@ -61,7 +62,7 @@ export default function ServicesSection() {
               "
             >
               Get in Touch
-            </button>
+            </a>
           </div>
         </div>
 

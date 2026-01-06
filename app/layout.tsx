@@ -2,6 +2,11 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import { Inter } from "next/font/google";
 import { Space_Mono } from "next/font/google";
+export const metadata = {
+  title: "EeshiSoft – Software & Web Development Company",
+  description:
+    "EeshiSoft is a software and web development company building modern, fast, and scalable web applications.",
+};
 
 export const spaceMono = Space_Mono({
   subsets: ["latin"],
