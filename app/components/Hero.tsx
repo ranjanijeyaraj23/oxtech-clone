@@ -1,5 +1,13 @@
 import HeroLeftClient from "../components/HeroLeftClient";
-import HeroCubeClient from "../components/HeroCubeClient";
+import dynamic from "next/dynamic";
+
+const HeroCubeClient = dynamic(
+  () => import("../components/HeroCubeClient"),
+  {
+    ssr: false,
+    loading: () => null,
+  }
+);
 
 export default function Hero() {
   return (

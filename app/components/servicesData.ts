@@ -13,7 +13,7 @@ export const services = [
       "Security audits",
       "Multi-chain compatibility",
     ],
-    color: "#00ff84",
+    color: "#3bb273",
   },
   {
     id: "dapp",

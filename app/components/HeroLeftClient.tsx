@@ -5,7 +5,7 @@ import AnimatedHeroLeft from "./AnimatedHeroLeft";
 export default function HeroLeftClient() {
   return (
     <AnimatedHeroLeft>
-      <h1
+      <h2
         className="font-semibold leading-[1.1]
         text-[2rem] sm:text-[2.6rem] md:text-[3.2rem] xl:text-[4.2rem]"
       >
@@ -17,7 +17,7 @@ export default function HeroLeftClient() {
           </span>
         </span>
         <span className="block text-[#ffffff]">Future</span>
-      </h1>
+      </h2>
 
       <p
         className="mt-6 text-[#c9d4e6] text-[0.95rem]
