@@ -18,6 +18,13 @@ module.exports = {
           "0%": { transform: "rotate(360deg)" },
           "100%": { transform: "rotate(0deg)" },
         },
+        cubeSpin: {
+          "0%": { transform: "rotateX(18deg) rotateY(0deg)" },
+          "100%": { transform: "rotateX(18deg) rotateY(360deg)" },
+        },
+      },
+       animation: {
+        cubeSpin: "cubeSpin 14s linear infinite",
       },
       container: {
         center: true,

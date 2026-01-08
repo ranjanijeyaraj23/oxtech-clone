@@ -12,7 +12,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative w-full overflow-hidden
+      className="scroll-mt-[90px] relative w-full overflow-hidden
       bg-[linear-gradient(rgba(31,122,255,0.03)_1px,transparent_0),
       linear-gradient(90deg,rgba(59,178,115,0.03)_1px,transparent_0)]
       bg-[size:26px_26px,26px_26px]"

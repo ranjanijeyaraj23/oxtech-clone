@@ -5,7 +5,7 @@ export default function ServicesSection() {
   return (
     <section
       id="solutions" aria-labelledby="services-heading"
-      className="relative w-full bg-[#0f0f0f] overflow-hidden"
+      className=" scroll-mt-[90px] relative w-full bg-[#0f0f0f] overflow-hidden"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 py-24">
 
@@ -46,13 +46,13 @@ export default function ServicesSection() {
               Ready to Build Your Blockchain Project?
             </h3>
 
-            <p className="mt-3 text-[#b6c4da] text-[0.95rem] sm:text-[1rem]">
+            <p className="mt-3 mb-6 text-[#b6c4da] text-[0.95rem] sm:text-[1rem]">
               Let our experts help bring your vision to life.
             </p>
 
             <a href="#contact"
               className="
-                mt-6 rounded-full
+                mt-12 rounded-full
                 bg-[linear-gradient(135deg,#1f7aff,#3bb273)]
                 px-7 py-3
                 text-white font-medium

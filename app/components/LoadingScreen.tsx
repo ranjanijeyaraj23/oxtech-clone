@@ -105,7 +105,11 @@ useEffect(() => {
   }
 }, [progress]);
 
+const [animateLogo, setAnimateLogo] = useState(false);
 
+useEffect(() => {
+  setAnimateLogo(true);
+}, []);
   return (
     <MotionConfig reducedMotion="never">
      {/* <AnimatePresence onExitComplete={onFinish}> */}
@@ -146,7 +150,8 @@ useEffect(() => {
           <div className="relative z-10 flex flex-col items-center">
          {showLogo && (
   <motion.div
-  animate={{ y: [0, -14, 0] }}
+  initial={{ y: 0 }}
+  animate={animateLogo ? { y: [0, -14, 0] } : false}
   transition={{
     duration: 4,
     ease: "easeInOut",
@@ -155,6 +160,7 @@ useEffect(() => {
 >
   <EeshisoftLogo />
 </motion.div>
+
 
 
 )}
@@ -237,7 +243,7 @@ useEffect(() => {
 
   rounded-lg
   px-4 py-[14px]
-  font-mono
+  font-space
   text-[14px]
   leading-[18px]
   tracking-[-0.025em]
@@ -369,35 +375,6 @@ function EeshisoftLogo() {
     </div>
   );
 }
-// function EeshisoftLogo() {
-//   return (
-//     <motion.div
-//       animate={{ y: [0, -40, 0] }}
-//       transition={{
-//         duration: 4,
-//         ease: "easeInOut",
-//         repeat: Infinity,
-//       }}
-//       className="
-//         w-[112px]
-//         h-[112px]
-//         flex
-//         items-center
-//         justify-center
-//         will-change-transform
-//         drop-shadow-[0_0_30px_rgba(31,122,255,0.45)]
-//       "
-//     >
-//       <Image
-//         src="/eeshisoft-logo.png"
-//         alt="Eeshisoft Logo"
-//         width={112}
-//         height={112}
-//         priority
-//         unoptimized
-//       />
-//     </motion.div>
-//   );
-// }
+
 
 

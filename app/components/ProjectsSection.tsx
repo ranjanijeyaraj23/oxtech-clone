@@ -4,7 +4,7 @@ export default function ProjectsSection() {
   return (
     <section aria-labelledby="projects-heading"
       id="projects"
-      className="relative w-full bg-[#0b1020] overflow-hidden"
+      className="scroll-mt-[90px] relative w-full bg-[#0b1020] overflow-hidden"
     >
       {/* Background glow (SSR static) */}
       <div

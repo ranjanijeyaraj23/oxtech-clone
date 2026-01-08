@@ -1,6 +1,6 @@
-import HeroLeftClient from "../components/HeroLeftClient";
+import HeroLeft from "../components/HeroLeft.server";
 import dynamic from "next/dynamic";
-
+import CubeTailwind from "../components/CubeTailwind";
 const HeroCubeClient = dynamic(
   () => import("../components/HeroCubeClient"),
   {
@@ -12,9 +12,9 @@ const HeroCubeClient = dynamic(
 export default function Hero() {
   return (
     <section
-  id="home"
-  className="
-    relative min-h-[100svh]
+  id="home" 
+  className="scroll-mt-[90px]
+    relative min-h-screen
     py-24 sm:py-28 lg:py-32
     w-full flex items-center overflow-hidden
     bg-[radial-gradient(circle_at_top,rgba(31,122,255,0.10),transparent_55%),radial-gradient(circle_at_bottom,rgba(59,178,115,0.10),transparent_55%)]
@@ -27,14 +27,21 @@ export default function Hero() {
         <div className="flex flex-col xl:flex-row items-center gap-14 xl:gap-24">
 
           {/* LEFT : SSR TEXT + CLIENT ANIMATION */}
-          <HeroLeftClient />
+          <HeroLeft />
+
 
           {/* RIGHT : CLIENT CUBE */}
           <div className="flex justify-center xl:justify-end w-full ">
-            <div className="scale-[0.75] sm:scale-[0.85]
-  md:scale-100 ">
-              <HeroCubeClient />
-            </div>
+            <div className="hidden  md:block justify-center xl:justify-end">
+  <CubeTailwind />
+</div>
+{/* MOBILE ONLY – CSS cube */}
+<div className="md:hidden w-[220px] h-[220px]
+  border border-[#1f7aff]/30
+  bg-[linear-gradient(135deg,rgba(31,122,255,.08),transparent)]
+  shadow-[0_0_30px_rgba(31,122,255,.15)]
+" />
+
           </div>
         </div>
 </div>

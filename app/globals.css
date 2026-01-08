@@ -200,3 +200,14 @@ body {
   overflow-x: hidden;
 }
 
+@media (max-width: 768px) {
+  .mouse-dot {
+    animation: none !important;
+  }
+}
+@media (max-width: 768px) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

@@ -1,5 +1,4 @@
 import "./globals.css";
-import Navbar from "./components/Navbar";
 import { Inter } from "next/font/google";
 import { Space_Mono } from "next/font/google";
 export const metadata = {
@@ -14,7 +13,12 @@ export const spaceMono = Space_Mono({
   display: "swap",
 });
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  preload: true,
+});
+
 
 export default function RootLayout({
   children,

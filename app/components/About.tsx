@@ -5,7 +5,7 @@ export default function AboutSection() {
   return (
     <section
       id="about" aria-labelledby="about-heading"
-      className="relative w-full overflow-hidden bg-[#05080f] text-white"
+      className="scroll-mt-[90px] relative w-full overflow-hidden bg-[#05080f] text-white"
     >
       {/* CLIENT EFFECTS */}
       <AboutClient />

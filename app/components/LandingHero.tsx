@@ -114,7 +114,7 @@ export default function LandingHero() {
         <div className="mt-8 w-[360px] rounded-xl
           border border-[#00ff84]/40
           bg-black/70 px-5 py-4
-          font-mono text-[12.5px] text-white/80
+          font-space text-[12.5px] text-white/80
           shadow-[0_0_30px_rgba(0,255,132,0.15)]">
           <p className="text-white/40">
             01 // The next generation of blockchain
